@@ -3,10 +3,13 @@ let computer = document.getElementById("computerChoice");
 let player = document.getElementById("playerChoice");
 let loseOrWin = document.getElementById("loseOrWin");
 let playBtn = document.getElementById("playBtn");
+let cScore = document.getElementById("computerScore");
 
 
 let score = 0;
+let compuerScore = 0;
 scoreBoard.innerHTML = score.toString();
+cScore.innerHTML = compuerScore.toString();
 
 const winConditions = { // Win conditions to the game. Ex: if the player selects Rock, so the win condition is the CPU selects Scissor.
     rock: "scissor",
@@ -54,6 +57,8 @@ const playRound = (pChoice, cChoice) => { // Verfify the win conditions to deter
         player.innerHTML = pChoice;
         computer.innerHTML = cChoice;
         loseOrWin.innerHTML = "You Lose!";
+        cScore++;
+        compuerScore.innerHTML = cScore.toString();
     }
 }
 
