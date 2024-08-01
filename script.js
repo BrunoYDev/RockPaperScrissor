@@ -64,7 +64,7 @@ const playRound = (pChoice, cChoice) => { // Verfify the win conditions to deter
         computer.innerHTML = cChoice;
 
         loseOrWin.innerHTML = "You Win!";
-        loseOrWin.style.color = "rgb(37, 228, 85)";
+        loseOrWin.style.color = "#25e455";
 
         score++;
         scoreBoard.innerHTML = score.toString();
@@ -74,7 +74,7 @@ const playRound = (pChoice, cChoice) => { // Verfify the win conditions to deter
         computer.innerHTML = cChoice;
         
         loseOrWin.innerHTML = "You Lose!";
-        loseOrWin.style.color = "rgb(228, 37, 37)";
+        loseOrWin.style.color = "#e42525";
 
         computerScore++;
         cScore.innerHTML = computerScore.toString();
