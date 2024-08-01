@@ -4,12 +4,21 @@ let player = document.getElementById("playerChoice");
 let loseOrWin = document.getElementById("loseOrWin");
 let playBtn = document.getElementById("playBtn");
 let cScore = document.getElementById("computerScore");
-
+let eraseScoreboard = document.getElementById("eraser");
 
 let score = 0;
-let compuerScore = 0;
+let computerScore = 0;
+
+if(window.localStorage.getItem("playerScore") === null && window.localStorage.getItem("computerScore") === null){
+    window.localStorage.setItem("playerScore", score);
+    window.localStorage.setItem("computerScore", computerScore);
+}else{
+    score = window.localStorage.getItem("playerScore");
+    computerScore = window.localStorage.getItem("computerScore");
+}
+
 scoreBoard.innerHTML = score.toString();
-cScore.innerHTML = compuerScore.toString();
+cScore.innerHTML = computerScore.toString();
 
 const winConditions = { // Win conditions to the game. Ex: if the player selects Rock, so the win condition is the CPU selects Scissor.
     rock: "scissor",
@@ -53,22 +62,29 @@ const playRound = (pChoice, cChoice) => { // Verfify the win conditions to deter
         loseOrWin.innerHTML = "You Win!";
         score++;
         scoreBoard.innerHTML = score.toString();
+        window.localStorage.setItem("playerScore", score);
     }else{
         player.innerHTML = pChoice;
         computer.innerHTML = cChoice;
         loseOrWin.innerHTML = "You Lose!";
-        cScore++;
-        compuerScore.innerHTML = cScore.toString();
+        computerScore++;
+        cScore.innerHTML = computerScore.toString();
+        window.localStorage.setItem("computerScore", computerScore);
     }
-}
+};
 
 const playGame = () => { // Initiate all the code above.
     let pChoice = getUserChoice();
     let cChoice = getComputerChoice();
     playRound(pChoice, cChoice);
-}
+};
 
 playBtn.addEventListener("click", playGame);
+eraseScoreboard.addEventListener("click", () => {
+    window.localStorage.clear();
+    scoreBoard.innerHTML = "0";
+    cScore.innerHTML = "0";
+});
 
 
 /*
