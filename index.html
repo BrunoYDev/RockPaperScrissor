@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissor</title>
-</head>
-<body>
-    <h2>Your Choice:</h2>
-    <p id="playerChoice"></p>
-    <br>
-    <h2>Computer Choice: </h2>
-    <p id="computerChoice"></p>
-    <br>
-    <h2> Your Score: </h2>
-    <p id="score"></p>
-    <br>
-    <h2>Computer Score: </h2>
-    <p id="computerScore"></p>
-    <br>
-    <h3 id="loseOrWin"></h3>
-    <br>
-    <button id="playBtn">Play</button>
-    <button id="eraser">Erase Scoreboard</button>
-    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="choices">
+      <div class="boxes">
+        <h2 class="choice">Your Choice:</h2>
+        <p class="inputedChoice" id="playerChoice"></p>
+      </div>
+
+      <div class="boxes">
+        <h2 class="choice">Computer Choice:</h2>
+        <p class="inputedChoice" id="computerChoice"></p>
+      </div>
+    </div>
+    <div id="scoreBoard">
+      <div class="boxes">
+        <h2>Your Score:</h2>
+        <p id="score"></p>
+      </div>
+      <div class="boxes">
+        <h2>Computer Score:</h2>
+        <p id="computerScore"></p>
+      </div>
+    </div>
+
+    <div id="resultBox">
+      <h3 id="loseOrWin">Click on Play Button!</h3>
+    </div>
+
+    <div id="btnBox">
+      <button id="playBtn">Play</button>
+      <button id="eraser">Erase Scoreboard</button>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

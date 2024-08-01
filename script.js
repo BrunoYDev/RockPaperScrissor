@@ -55,18 +55,27 @@ const playRound = (pChoice, cChoice) => { // Verfify the win conditions to deter
     if(pChoice === cChoice){
         player.innerHTML = pChoice;
         computer.innerHTML = cChoice;
+
         loseOrWin.innerHTML = "It's a Draw!";
+        loseOrWin.style.color = "rgb(126, 126, 126)";
+
     }else if(winConditions[pChoice] === cChoice){
         player.innerHTML = pChoice;
         computer.innerHTML = cChoice;
+
         loseOrWin.innerHTML = "You Win!";
+        loseOrWin.style.color = "rgb(37, 228, 85)";
+
         score++;
         scoreBoard.innerHTML = score.toString();
         window.localStorage.setItem("playerScore", score); //Change localStorage variable value;
     }else{
         player.innerHTML = pChoice;
         computer.innerHTML = cChoice;
+        
         loseOrWin.innerHTML = "You Lose!";
+        loseOrWin.style.color = "rgb(228, 37, 37)";
+
         computerScore++;
         cScore.innerHTML = computerScore.toString();
         window.localStorage.setItem("computerScore", computerScore); //Change localStorage variable value;
