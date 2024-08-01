@@ -9,7 +9,7 @@ let eraseScoreboard = document.getElementById("eraser");
 let score = 0;
 let computerScore = 0;
 
-if(window.localStorage.getItem("playerScore") === null && window.localStorage.getItem("computerScore") === null){
+if(window.localStorage.getItem("playerScore") === null && window.localStorage.getItem("computerScore") === null){ //Verify if the localStorage itens exists.
     window.localStorage.setItem("playerScore", score);
     window.localStorage.setItem("computerScore", computerScore);
 }else{
@@ -62,14 +62,14 @@ const playRound = (pChoice, cChoice) => { // Verfify the win conditions to deter
         loseOrWin.innerHTML = "You Win!";
         score++;
         scoreBoard.innerHTML = score.toString();
-        window.localStorage.setItem("playerScore", score);
+        window.localStorage.setItem("playerScore", score); //Change localStorage variable value;
     }else{
         player.innerHTML = pChoice;
         computer.innerHTML = cChoice;
         loseOrWin.innerHTML = "You Lose!";
         computerScore++;
         cScore.innerHTML = computerScore.toString();
-        window.localStorage.setItem("computerScore", computerScore);
+        window.localStorage.setItem("computerScore", computerScore); //Change localStorage variable value;
     }
 };
 
@@ -80,7 +80,8 @@ const playGame = () => { // Initiate all the code above.
 };
 
 playBtn.addEventListener("click", playGame);
-eraseScoreboard.addEventListener("click", () => {
+
+eraseScoreboard.addEventListener("click", () => { //Function that cleans local storage
     window.localStorage.clear();
     scoreBoard.innerHTML = "0";
     cScore.innerHTML = "0";
