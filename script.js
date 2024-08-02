@@ -17,8 +17,8 @@ if(window.localStorage.getItem("playerScore") === null && window.localStorage.ge
     computerScore = window.localStorage.getItem("computerScore");
 }
 
-scoreBoard.innerHTML = score.toString();
-cScore.innerHTML = computerScore.toString();
+scoreBoard.innerText = score.toString();
+cScore.innerText = computerScore.toString();
 
 const winConditions = { // Win conditions to the game. Ex: if the player selects Rock, so the win condition is the CPU selects Scissor.
     rock: "scissor",
@@ -53,31 +53,31 @@ const playRound = (pChoice, cChoice) => { // Verfify the win conditions to deter
     cChoice.toLowerCase();
 
     if(pChoice === cChoice){
-        player.innerHTML = pChoice;
-        computer.innerHTML = cChoice;
+        player.innerText = pChoice;
+        computer.innerText = cChoice;
 
-        loseOrWin.innerHTML = "It's a Draw!";
+        loseOrWin.innerText = "It's a Draw!";
         loseOrWin.style.color = "rgb(126, 126, 126)";
 
     }else if(winConditions[pChoice] === cChoice){
-        player.innerHTML = pChoice;
-        computer.innerHTML = cChoice;
+        player.innerText = pChoice;
+        computer.innerText = cChoice;
 
         loseOrWin.style.color = "#25e455";
-        loseOrWin.innerHTML = "You Win!";
+        loseOrWin.innerText = "You Win!";
 
         score++;
-        scoreBoard.innerHTML = score.toString();
+        scoreBoard.innerText = score.toString();
         window.localStorage.setItem("playerScore", score); //Change localStorage variable value;
     }else{
-        player.innerHTML = pChoice;
-        computer.innerHTML = cChoice;
+        player.innerText = pChoice;
+        computer.innerText = cChoice;
         
         loseOrWin.style.color = "#e42525";
-        loseOrWin.innerHTML = "You Lose!";
+        loseOrWin.innerText = "You Lose!";
 
         computerScore++;
-        cScore.innerHTML = computerScore.toString();
+        cScore.innerText = computerScore.toString();
         window.localStorage.setItem("computerScore", computerScore); //Change localStorage variable value;
     }
 };
@@ -92,8 +92,8 @@ playBtn.addEventListener("click", playGame);
 
 eraseScoreboard.addEventListener("click", () => { //Function that cleans local storage
     window.localStorage.clear();
-    scoreBoard.innerHTML = "0";
-    cScore.innerHTML = "0";
+    scoreBoard.innerText = "0";
+    cScore.innerText = "0";
 });
 
 
